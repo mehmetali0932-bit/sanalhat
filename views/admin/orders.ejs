@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siparişler - Admin</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('../header') %>
+  <div class="container" style="padding: 40px 0;">
+    <h1>Tüm Siparişler</h1>
+    <div style="overflow-x: auto;">
+      <table class="data" style="width: 100%;">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Servis</th>
+            <th>Ülke</th>
+            <th>Numara</th>
+            <th>Durum</th>
+            <th>Fiyat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% orders.forEach(o => { %>
+            <tr>
+              <td><%= o.id %></td>
+              <td><%= o.serviceName %></td>
+              <td><%= o.countryName %></td>
+              <td><%= o.phoneNumber %></td>
+              <td><span class="badge badge-<%= o.status.toLowerCase() %>"><%= o.status %></span></td>
+              <td>₺<%= o.price %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%- include('../footer') %>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Dokümantasyonu - SanalHat</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('header') %>
+  <div class="container" style="padding: 40px 0;">
+    <h1>API Dokümantasyonu</h1>
+    <div class="card">
+      <h2>Başlangıç</h2>
+      <p>Tüm API istekleri <code style="background: var(--bg-soft); padding: 2px 6px;">api_key</code> parametresi gerektirir.</p>
+    </div>
+    <div class="card">
+      <h2>getBalance</h2>
+      <p>Mevcut bakiyeyi döner.</p>
+      <pre style="background: var(--bg-soft); padding: 12px; border-radius: 6px; overflow-x: auto;"><code>GET /api/v1/getBalance?api_key=YOUR_KEY</code></pre>
+    </div>
+    <div class="card">
+      <h2>getNumber</h2>
+      <p>Yeni bir sanal numara alır.</p>
+      <pre style="background: var(--bg-soft); padding: 12px; border-radius: 6px; overflow-x: auto;"><code>GET /api/v1/getNumber?api_key=YOUR_KEY&service=whatsapp&country=tr</code></pre>
+    </div>
+    <div class="card">
+      <h2>getStatus</h2>
+      <p>Sipariş durumunu kontrol et.</p>
+      <pre style="background: var(--bg-soft); padding: 12px; border-radius: 6px; overflow-x: auto;"><code>GET /api/v1/getStatus?api_key=YOUR_KEY&id=ORDER_ID</code></pre>
+    </div>
+  </div>
+  <%- include('footer') %>
+</body>
+</html>

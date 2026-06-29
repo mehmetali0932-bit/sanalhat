@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servis Yönetimi - Admin</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('../header') %>
+  <div class="container" style="padding: 40px 0;">
+    <h1>Servis Fiyatları</h1>
+    <div style="overflow-x: auto;">
+      <table class="data" style="width: 100%;">
+        <thead>
+          <tr>
+            <th>Servis</th>
+            <th>Taban Fiyat</th>
+            <th>İşlem</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% services.forEach(s => { %>
+            <tr>
+              <td><%= s.name %></td>
+              <td>₺<%= s.basePrice %></td>
+              <td>
+                <form method="POST" action="/admin/servisler/<%= s.id %>/fiyat" style="display: inline; display: flex; gap: 8px;">
+                  <input type="number" name="basePrice" value="<%= s.basePrice %>" step="0.01" style="width: 100px;" required>
+                  <button type="submit" class="btn btn-sm">Güncelle</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%- include('../footer') %>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kullanıcı Yönetimi - Admin</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('../header') %>
+  <div class="container" style="padding: 40px 0;">
+    <h1>Kullanıcı Yönetimi</h1>
+    <div style="overflow-x: auto;">
+      <table class="data" style="width: 100%;">
+        <thead>
+          <tr>
+            <th>E-posta</th>
+            <th>Bakiye</th>
+            <th>Admin</th>
+            <th>İşlem</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(u => { %>
+            <tr>
+              <td><%= u.email %></td>
+              <td><%= u.balance %> kredi</td>
+              <td><%= u.isAdmin ? 'Evet' : 'Hayır' %></td>
+              <td>
+                <form method="POST" action="/admin/kullanicilar/<%= u.id %>/bakiye" style="display: inline; display: flex; gap: 8px;">
+                  <input type="number" name="amount" placeholder="Miktar" step="0.01" style="width: 100px;" required>
+                  <button type="submit" class="btn btn-sm">Ayarla</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%- include('../footer') %>
+</body>
+</html>

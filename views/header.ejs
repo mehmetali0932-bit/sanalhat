@@ -1,0 +1,22 @@
+<header class="navbar">
+  <div class="container">
+    <div class="row">
+      <a href="/" class="brand">Sanal<span class="dot">.</span>Hat</a>
+      <nav class="nav-links">
+        <% if (currentUser) { %>
+          <a href="/panel">Panelim</a>
+          <% if (currentUser.isAdmin) { %>
+            <a href="/admin">Yönetici</a>
+          <% } %>
+          <span class="balance-chip"><%= currentUser.balance %> kredi</span>
+          <form method="POST" action="/cikis" style="display:inline;">
+            <button type="submit" class="btn btn-ghost btn-sm">Çıkış</button>
+          </form>
+        <% } else { %>
+          <a href="/kayit">Kayıt Ol</a>
+          <a href="/giris" class="btn btn-primary btn-sm">Giriş Yap</a>
+        <% } %>
+      </nav>
+    </div>
+  </div>
+</header>

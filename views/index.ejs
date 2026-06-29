@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SanalHat — Sanal Numara Kiralama</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('header') %>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">🚀 Başlayın</div>
+          <h1>Sanal Numaralarla Hızlı SMS Doğrulama</h1>
+          <p class="lead">WhatsApp, Telegram, Instagram ve daha birçok servisi için geçici sanal numaralar alın.</p>
+          <div class="hero-actions">
+            <% if (currentUser) { %>
+              <a href="/panel" class="btn btn-primary">Panele Git</a>
+            <% } else { %>
+              <a href="/kayit" class="btn btn-primary">Başla</a>
+              <a href="/giris" class="btn btn-ghost">Giriş Yap</a>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('footer') %>
+</body>
+</html>
